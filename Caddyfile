@@ -1,0 +1,15 @@
+:443, nameandname.top #你的域名
+tls woshisnren@gmail.com #你的邮箱
+route {
+ forward_proxy {
+   basic_auth admin adg30675645 #用户名和密码
+   hide_ip
+   hide_via
+   probe_resistance
+  }
+ #支持多用户
+ reverse_proxy  https://pan.aaaab3n.moe  { #伪装网址
+   header_up  Host  {upstream_hostport}
+   header_up  X-Forwarded-Host  {host}
+  }
+}
